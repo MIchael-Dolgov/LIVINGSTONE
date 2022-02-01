@@ -24,7 +24,6 @@ class UseDataBase:
         """Принимаег аргумент для инициализации пользователя и сохраняет в виде атрибута"""
         self.configuration = config
 
-
     def __enter__(self) -> object:
         """Производит настройку соединения"""
         try:
@@ -38,7 +37,6 @@ class UseDataBase:
         except mysql.connector.errors.ProgrammingError as err:
             raise CredentialsError(err)
 
-    
     def __exit__(self, exc_type, exc_value, exc_trace):
         """Закрывает соединение и отправляет ошибку при ее получении"""
         self.conn.commit()

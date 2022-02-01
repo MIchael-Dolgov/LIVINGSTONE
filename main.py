@@ -3,14 +3,15 @@ from stocks import show_stocks
 from checkLogged import check_logged_in, user_status
 from DBcm import UseDataBase, DataBaseError
 import os
-from DBactions import *
 
 app = Flask(__name__)
 
-app.config["dbconfig"] = {"host": os.getenv("dbhostname"),
-                          "user": os.getenv("dbusername"),
-                          "password": os.getenv("dbpassword"),
-                          "database": os.getenv("dbname"), }
+app.config["dbconfig"] = {
+    "host": os.getenv("dbhostname"),
+    "user": os.getenv("dbusername"),
+    "password": os.getenv("dbpassword"),
+    "database": os.getenv("dbname"),
+}
 
 stockinfo = show_stocks()
 
@@ -30,14 +31,14 @@ def mail_subscribes(mail: str) -> str:
 
             # Проверяет наличие логина пользователя в базе данных
             _SQL = """SELECT * FROM mail_subscribes WHERE mail = (%s)"""
-            cursor.execute(_SQL, (mail,))
+            cursor.execute(_SQL, (mail, ))
             resultReg = cursor.fetchall()
 
             if resultReg:
                 return "Пользователь с такой почтой уже существует!"
             else:
                 _SQL = """INSERT INTO mail_subscribes (mail) VALUES (%s)"""
-                cursor.execute(_SQL, (mail,))
+                cursor.execute(_SQL, (mail, ))
                 return "Вы подписались на рассылку!"
     else:
         return "Заполните поле"
@@ -53,7 +54,7 @@ def login_user(mail: str, password: str):
 
             # Проверяет наличие логина пользователя в базе данных
             _SQL = """SELECT * FROM users WHERE mail = (%s)"""
-            cursor.execute(_SQL, (mail,))
+            cursor.execute(_SQL, (mail, ))
             resultLog = cursor.fetchall()
 
             # Проверяет правильность пароля к логину
@@ -87,7 +88,7 @@ def register_user(mail: str, name: str, password: str):
 
             # Проверяет наличие логина пользователя в базе данных
             _SQL = """SELECT * FROM users WHERE mail = (%s)"""
-            cursor.execute(_SQL, (mail,))
+            cursor.execute(_SQL, (mail, ))
             resultReg = cursor.fetchall()
 
             if resultReg:
@@ -146,8 +147,7 @@ def post_analytics():
 
 @app.route('/login', methods=['GET'])
 def login():
-    return render_template("login.html",
-                           the_title="login")
+    return render_template("login.html", the_title="login")
 
 
 @app.route('/auth', methods=["POST"])
@@ -166,8 +166,7 @@ def auth_login():
 
 @app.route('/register', methods=['POST', 'GET'])
 def register():
-    return render_template("register.html",
-                           the_tittle="register")
+    return render_template("register.html", the_tittle="register")
 
 
 @app.route('/registration', methods=['POST'])
@@ -199,7 +198,6 @@ def adminpanel():
 
 
 app.secret_key = os.getenv("flask_secret_key")
-
 
 if __name__ == '__main__':
     app.run(debug=True, port=4343)
