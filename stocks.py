@@ -25,6 +25,7 @@ def get_stock_quote(ticker_symbol, api):
 
 #stock_price = get_stock_price(ticker, api_key)
 
+# Append async execution
 
 def show_stocks(companies=("DJI", "IXIC", "SPX", "RUB/USD", "RUB/EUR", "AAPL", "MSFT", "TSLA", "NFLX", "GS")):
     """Format info to readble stock list"""

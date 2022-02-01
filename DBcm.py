@@ -28,7 +28,7 @@ class UseDataBase:
     def __enter__(self) -> object:
         """Производит настройку соединения"""
         try:
-            __self.conn = mysql.connector.connect(**self.configuration)
+            self.conn = mysql.connector.connect(**self.configuration)
             self.cursor = self.conn.cursor()
             return self.cursor
         except mysql.connector.errors.DatabaseError as err:
