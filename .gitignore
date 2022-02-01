@@ -1,0 +1,6 @@
+exportenv.sh
+venv/
+__pycache__/
+.vscode/
+.DS_Store
+test.txt

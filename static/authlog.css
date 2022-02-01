@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+h2, h3 {
+    font-family: "Roboto";   
+    text-align: center;
+}
+
+input {
+    margin-top: 15px;
+    border: 3px solid #000;
+    text-decoration: none;
+}
+
+.info_list {
+    color: #000;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: auto;
+}
+
+.format {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 450px;
+    height: 450px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    max-width: 100%;
+    display: block;
+    border: 4px solid rgb(46, 46, 46);
+}
+
+.userdata {
+    display: flex;
+    flex-direction: column;
+    margin: 4% 10%;
+    font-family: "Roboto";
+}
+
+input {
+    
+    display: inline-block;
+    vertical-align: top;
+    padding: 10px 15px;
+
+    border: 4px solid rgb(0, 0, 0);
+
+    font-size: 15px;
+    font-weight: 700;
+
+    color: rgb(121, 121, 121);
+    background-color: rgba(255, 255, 255, 0);
+
+    text-decoration: none;
+    
+    transition: background 0.2s linear, color 0.2s linear;
+}
+
+input:hover {
+    background-color: rgb(173, 173, 173);
+    color: #333;
+}
+
+.other {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 100px;
+    
+}
+
+.nav {
+    margin-top: 5px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav_link{
+    font-size: 18px;
+    margin: 7px auto;
+    font-family: 'Roboto';
+    font-weight: 300;
+    display: inline-block;
+    line-height: 1.3; 
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+
+}
+
+.nav_link:after{
+    display: block;
+    content: "";
+    height: 2px;
+    width: 0%;
+    background: rgba(0, 0, 0, 0.548);
+    transition: width 0.4s ease-in-out;
+    text-decoration: underline overline rgb(0, 0, 0);
+}
+
+.nav_link:hover:after,
+.nav_link:focus:after{
+    width: 100%;
+    opacity: 1;
+}
+
+.submitbut {
+    text-transform: uppercase;
+    color: rgb(255, 255, 255);
+    background-color: #000;
+}

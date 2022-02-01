@@ -1,0 +1,37 @@
+/*============main info==============*/
+
+.info {
+    color:rgb(0, 0, 0);
+}
+
+.filter{
+    
+    background-color: rgb(34, 30, 30);
+}
+
+.intro{
+    display: flex;
+    flex-direction: column;
+}
+
+.maininfo {
+    color:rgba(56, 53, 53, 0.692);
+    margin: 60px 15%;
+}
+
+.infotittle {
+    font-style: "Segoe UI";
+}
+
+.infotittle h2{
+    font-weight: 500;
+    margin-bottom: 2%;
+    margin-top: 6%;
+}
+
+.infotittle a{
+    margin-bottom: 3px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}

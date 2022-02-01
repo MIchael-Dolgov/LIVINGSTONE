@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>{{ the_title }}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <!---->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+        <!---->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap" rel="stylesheet"> 
+        <!---->
+        <link type="image/x-icon" rel="shortcut icon" href="static/icons/favicon.ico">
+        <link type="image/png" sizes="16x16" rel="icon" href="static/icons/favicon.ico">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="static/base.css" />
+        <link rel="stylesheet" href="static/main.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">        
+    </head>
+    <body>
+        <div class="blackline">
+        <header class="header">
+            <div class="container">
+                <div class="header__logo" >
+                    <a href="/" >LIVINGSTONE</a>
+                </div>
+                <div class="header__inner"></div>
+                    <!-- Logo here -->
+                    <nav class="nav">
+                        <a class="nav_link" href="/">О нас</a>
+                        <a class="nav_link" href="services">Услуги</a>
+                        <a class="nav_link" href="/contact">Контакты</a>
+                        <a class="nav_link" href="analytics">Аналитика</a>
+                        <ul class="nav_link"> | </ul>
+                        <a class="nav_link" href="login">{{the_user_status}}   <i class="fa fa-sign-in"></i></a>
+                    </nav>
+            </div>
+            <div class="marquee"><span>{{the_stocks}}</span></div>
+        </div>
+        </header>
+        <!-- Это jinja2 Не трожб!!!! Тут наследования разметки и стилей не происходит -->
+        {% block body %}
+        {% endblock %}
+        <footer>
+            <form method='POST' action='/mailsender'>
+                <div class="subscribeform">
+                    <h2>Subscribe form</h2>
+                    <tr><td><input name='mail' type='TEXT' value='mail'></td></tr>
+                    <input class="submitbut" type="SUBMIT" value="Submit">
+                </div>
+            </form>
+            <div class="footer-content">
+                <h3>LIVINGSTONE</h3>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                </p>
+                <ul class="socials">
+                    <li><a href="https://instagram.com/livingstone_invest?utm_medium=copy_link"><i class="fa fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fa fa-vk"></i></a></li>
+                    <li><a href="http://t-do.ru/Vladislav_Livingstone"><i class="fa fa-link"></i></a></li>
+                </ul>
+                <a class="maillink" href="mailto:team@livingstoneinvest.com">team@livingstoneinvest.com</a>
+            </div>
+            <div class="footer-bottom">
+                <p>copyright &copy;2022 LIVINGSTONE. Designed by <span>Michael Dolgov</span></p>
+            </div>
+        </footer>
+    </body>
+</html>

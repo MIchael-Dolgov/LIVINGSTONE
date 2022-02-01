@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+    <head>
+        <link rel="stylesheet" href="static/contact.css" />
+    </head>
+    <body>
+        <div class="contacts">
+            <div class="contactbar">
+                    <h1>Contacts</h1>
+                    <h3>352742, г. Краснодар, Маяковского, 160</h3>
+                    <a href="team@livingstoneinvest.com">team@livingstoneinvest.com</a>
+                    <p>+7 (918) 957-51-05</p>
+                    <div class="links">
+                        <li><a class="nav_link" href="https://instagram.com/livingstone_invest?utm_medium=copy_link"><i class="fa fa-instagram"></i></a></li>
+                        <li><a class="nav_link" href="http://t-do.ru/Vladislav_Livingstone"><i class="fa fa-link"></i></a></li>
+                </div>
+                </div>
+            <div class="questionform">
+                <tr><td><input name='name' type='TEXT' value='name'></td></tr>
+                <tr><td><input name='mail' type='TEXT' value='mail'></td></tr>
+                <tr><td><input name='phone' type='TEXT' value='phone'></td></tr>
+                <tr><textarea name="details" cols="30" rows="3" placeholder="Введите дополнительную информацию"></textarea></tr>
+                <input class="submitbut" type="button" value="Send message">
+            </div>
+        </div>
+        <div class="yandex-map">
+            <div class="blackline"></div>
+            <script type="text/javascript" charset="utf-8" 
+            async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Af5382250446ee74b1c3e7634f4e10bdec94291291066a3d88bfcc57bd54e330f&amp;width=100%25&amp;height=500&amp;lang=ru_RU&amp;scroll=true">
+
+            </script>
+            <!--
+            <iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen
+            src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJhaWSpeZP8EARwfgBk_HEgvA&key=..."></iframe> 
+            -->
+            <div class="blackline"></div>
+        </div>
+        <div class="zerospace">
+            
+        </div>
+    </body>
+{% endblock %}

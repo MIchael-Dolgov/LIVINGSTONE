@@ -1,0 +1,100 @@
+.yandex-map {
+    height: auto;
+    width: 100%;
+}
+
+.yandex-map .blackline{
+    height: 5px;
+    width: 100%;
+    background-color: #000;    
+}
+
+.contacts{
+    margin: 40px 20px;
+    font-family: "Roboto";
+    display: flex;
+    flex-direction: row;
+}
+
+.contactbar{
+    text-align: center;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.contacts a {
+    color: #000;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+.contacts h1 {
+    font-weight: 400;
+    color: #000;
+    margin-bottom: 20px;
+
+}
+
+.contacts h3 {
+    font-weight: 300;
+    color: #000;
+    margin-bottom: 15px;
+}
+
+.contacts p {
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.links {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    margin: 10px auto;
+}
+
+.questionform {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+
+.questionform input, textarea {
+    margin-top: 10px;
+    display: inline-block;
+    vertical-align: top;
+    padding: 10px 15px;
+
+    border: 2px solid rgb(0, 0, 0);
+
+    font-size: 15px;
+    font-weight: 700;
+
+    color: rgb(121, 121, 121);
+    background-color: rgba(255, 255, 255, 0);
+    text-decoration: none;
+    
+    transition: background 0.2s linear, color 0.2s linear;
+}
+
+.questionform input:hover, textarea:hover {
+    background-color: rgb(173, 173, 173);
+    color: #333;
+}
+
+
+textarea {
+    overflow-y: scroll;
+    height: 170px;
+    resize: none; /* Remove this if you want the user to resize the textarea */
+}
+
+.questionform .submitbut{
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #000;
+}
+
