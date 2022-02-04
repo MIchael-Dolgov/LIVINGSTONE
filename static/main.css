@@ -14,6 +14,12 @@
     flex-direction: column;
 }
 
+.intro img {
+    width: auto;
+    height: auto;
+    max-height: 640px;
+}
+
 .maininfo {
     color:rgba(56, 53, 53, 0.692);
     margin: 60px 15%;

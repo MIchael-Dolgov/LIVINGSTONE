@@ -1,14 +1,3 @@
-import smtplib
-import os
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
-import time
-from DBactions import mail_selecter
-import threading
-
-#=================Your html form=================#
-
-
 def formathtml(title: str, text,) -> str:
     html = """
     <!doctype html>
@@ -104,36 +93,3 @@ def formathtml(title: str, text,) -> str:
     </html>
     """
     return html
-
-
-#=================End html form=================#
-
-
-def message_sender(title: str, text: str, message_theme: str, file=None, port=587,) -> None:
-    smtp_server = smtplib.SMTP("smtp.gmail.com", port)
-    smtp_server.ehlo()
-    smtp_server.starttls()
-    msg = MIMEMultipart()
-    msg["From"] = "LIVINGSTONE"
-    msg["Subject"] = message_theme
-    msg.attach(MIMEText(formathtml(title, text), "html"))
-    if file:
-        msg.attach(MIMEText(file, "pdf"))
-
-    try:
-        smtp_server.login(os.getenv("mailname"), os.getenv("mailpasswd"))
-        for usermail in mail_selecter():
-            smtp_server.sendmail(os.getenv("mailname"), usermail,
-                                 msg.as_string())
-            time.sleep(1 / 100)
-            print(f"Mail sended to: {usermail}")
-
-        smtp_server.close()
-    except Exception as err:
-        print("Что-то пошло не так: ", err)
-
-
-def start_sending(title: str, text: str, message_theme: str, file=None, port=587,) -> None:
-    threading.Thread(target=message_sender, args=(title, text, message_theme, file, port,)).start()
-    print("Запуск потока:")
-

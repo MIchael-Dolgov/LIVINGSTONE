@@ -30,9 +30,11 @@ def contact():
                            the_stocks=f"{stockinfo}")
 
 
-@app.route('/services', methods=['GET'])
+@app.route('/services', methods=['POST', 'GET'])
 def services():
-    pass
+   return render_template("services.html",
+                    the_title="Services",
+                    the_stocks=f"{stockinfo}")
 
 
 @app.route('/analytics', methods=['GET'])
