@@ -8,22 +8,24 @@
     <body>
         <div class="contacts">
             <div class="contactbar">
-                    <h1>Contacts</h1>
-                    <h3>352742, г. Краснодар, Маяковского, 160</h3>
-                    <a href="team@livingstoneinvest.com">team@livingstoneinvest.com</a>
-                    <p>+7 (918) 957-51-05</p>
-                    <div class="links">
-                        <li><a class="nav_link" href="https://instagram.com/livingstone_invest?utm_medium=copy_link"><i class="fa fa-instagram"></i></a></li>
-                        <li><a class="nav_link" href="http://t-do.ru/Vladislav_Livingstone"><i class="fa fa-link"></i></a></li>
+                <h1>Contacts</h1>
+                <h3>352742, г. Краснодар, Маяковского, 160</h3>
+                <a href="team@livingstoneinvest.com">team@livingstoneinvest.com</a>
+                <p>+7 (918) 957-51-05</p>
+                <div class="links">
+                    <li><a class="nav_link" href="https://instagram.com/livingstone_invest?utm_medium=copy_link"><i class="fa fa-instagram"></i></a></li>
+                    <li><a class="nav_link" href="http://t-do.ru/Vladislav_Livingstone"><i class="fa fa-link"></i></a></li>
                 </div>
-                </div>
-            <div class="questionform">
-                <tr><td><input name='name' type='TEXT' value='name'></td></tr>
-                <tr><td><input name='mail' type='TEXT' value='mail'></td></tr>
-                <tr><td><input name='phone' type='TEXT' value='phone'></td></tr>
-                <tr><textarea name="details" cols="30" rows="3" placeholder="Введите дополнительную информацию"></textarea></tr>
-                <input class="submitbut" type="button" value="Send message">
             </div>
+            <form class="question" method='POST' action='/contactus'>
+                <div class="questionform">
+                    <tr><td><input name='name' type='TEXT' value='name'></td></tr>
+                    <tr><td><input name='mail' type='TEXT' value='mail'></td></tr>
+                    <tr><td><input name='phone' type='TEXT' value='phone'></td></tr>
+                    <tr><textarea name="details" cols="30" rows="3" placeholder="Введите дополнительную информацию"></textarea></tr>
+                    <input class="submitbut" type="SUBMIT" value="Send message">
+                </div>
+            </form>
         </div>
         <div class="yandex-map">
             <div class="blackline"></div>

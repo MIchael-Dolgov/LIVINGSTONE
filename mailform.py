@@ -19,7 +19,7 @@ def formathtml(title: str, text,) -> str:
 
                 .header a{
                     margin: 0px auto;
-                    font-size: 50px;
+                    font-size: 35px;
                     text-decoration: none;
                     color: #fff;
                 }
@@ -78,7 +78,7 @@ def formathtml(title: str, text,) -> str:
             </div>
             <div class="maininfo"i>
                 <h2>""" + title + """</h2>
-                """ + text + """"
+                """ + text + """
             </div>
             <div class="footer">
                 <div class="pre-footer">

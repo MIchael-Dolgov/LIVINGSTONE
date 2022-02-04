@@ -55,10 +55,14 @@
     margin: 10px auto;
 }
 
+.contacts form {
+    width: 50%;
+}
+
 .questionform {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 100%;
 }
 
 

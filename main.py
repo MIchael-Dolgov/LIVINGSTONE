@@ -15,6 +15,7 @@ app.config["dbconfig"] = {
 }
 
 
+#==============Main page===================#
 @app.route('/', methods=['POST', 'GET'])
 def mainpage():
     return render_template("main.html",
@@ -23,25 +24,7 @@ def mainpage():
                            the_user_status=user_status())
 
 
-@app.route('/contact', methods=['POST', 'GET'])
-def contact():
-    return render_template("contact.html",
-                           the_title="Contact",
-                           the_stocks=f"{stockinfo}")
-
-
-@app.route('/services', methods=['POST', 'GET'])
-def services():
-   return render_template("services.html",
-                    the_title="Services",
-                    the_stocks=f"{stockinfo}")
-
-
-@app.route('/analytics', methods=['GET'])
-def analytics():
-    return render_template("analytics.html",
-                            the_title="Analytics",
-                            the_stocks=f"{stockinfo}")
+#==============Base===================#
 
 
 @app.route('/mailsender', methods=["POST"])
@@ -57,10 +40,60 @@ def mailsender():
     return "Что-то пошло не так"
 
 
+#==================Contact================#
+
+
+@app.route('/contact', methods=['POST', 'GET'])
+def contact():
+    return render_template("contact.html",
+                           the_title="Contact",
+                           the_stocks=f"{stockinfo}",
+                           the_user_status=user_status())
+
+
+@app.route('/contactus', methods=["POST"])
+def contactus():
+    name = request.form["name"]
+    mail = request.form["mail"]
+    phone = request.form["phone"]
+    details = request.form["details"]
+    rdy_msg = f"Номер телефона: {phone} \n {details}"
+    try:
+        user = start_sending(mail, rdy_msg, name, user_mail=os.getenv("mailname"))
+        return "Good"
+    except DataBaseError as err:
+        print("База данных выключена")
+    except Exception as err:
+        print("Непредвиденное исключение: ", str(err))
+    return "Что-то пошло не так"
+
+#===================Services=============#
+
+
+@app.route('/services', methods=['POST', 'GET'])
+def services():
+    return render_template("services.html",
+                           the_title="Services",
+                           the_stocks=f"{stockinfo}",
+                           the_user_status=user_status())
+
+
+#================Analytics===========+#
+
+@app.route('/analytics', methods=['GET'])
+def analytics():
+    return render_template("analytics.html",
+                           the_title="Analytics",
+                           the_stocks=f"{stockinfo}",
+                           the_user_status=user_status())
+
 @app.route('/analytics/<number_of_post>')
 def post_analytics():
     pass
 
+#============================+======+#
+
+#==============Login=============+#
 
 @app.route('/login', methods=['GET'])
 def login():
@@ -79,6 +112,16 @@ def auth_login():
     except Exception as err:
         print("Непредвиденное исключение: ", str(err))
     return "Что-то пошло не так"
+
+
+@app.route('/logout')
+@check_logged_in
+def logout():
+    session.pop("logged_in")
+    return "Вы вышли из аккунта"
+
+
+#==================Registration===================#
 
 
 @app.route('/register', methods=['POST', 'GET'])
@@ -101,11 +144,7 @@ def registration():
     return "Error"
 
 
-@app.route('/logout')
-@check_logged_in
-def logout():
-    session.pop("logged_in")
-    return "Вы вышли из аккунта"
+#=======================#
 
 
 @app.route('/admin')
