@@ -1,7 +1,6 @@
 import requests
 import os
 
-ticker = "AAPL"
 api_key = os.getenv("stock_api")
 
 
@@ -24,7 +23,7 @@ def get_stock_quote(ticker_symbol, api):
         return ("Not Availible")
 
 
-#stock_price = get_stock_price(ticker, api_key)
+# stock_price = get_stock_price(ticker, api_key)
 
 # Append async execution
 
@@ -57,3 +56,6 @@ def show_stocks(companies=("DJI", "IXIC", "SPX", "RUB/USD", "RUB/EUR", "AAPL",
             continue
         #yield result
     return result
+
+
+stockinfo = show_stocks()
