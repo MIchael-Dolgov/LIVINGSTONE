@@ -58,4 +58,4 @@ def show_stocks(companies=("DJI", "IXIC", "SPX", "RUB/USD", "RUB/EUR", "AAPL",
     return result
 
 
-stockinfo = show_stocks()
+stockinfo = "Идет отладка..."

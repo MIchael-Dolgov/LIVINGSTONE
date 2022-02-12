@@ -99,7 +99,7 @@ def mail_subscribes(mail: str) -> str:
             else:
                 _SQL = """INSERT INTO mail_subscribes (mail) VALUES (%s)"""
                 cursor.execute(_SQL, (mail, ))
-                start_sending("Спасибо, что подписались на рассылку!", "Искренне ваши LIVINGSTONE", 
+                start_sending("Спасибо, что подписались на рассылку!", "Искренне ваши \n LIVINGSTONE", 
                               "Подписка на рассылку", file=None, port=587, user_mail=mail)
                 return "Вы подписались на рассылку!"
     else:
@@ -114,8 +114,8 @@ def message_sender(title: str, text: str, message_theme: str, file=None, port=58
     msg["From"] = "LIVINGSTONE"
     msg["Subject"] = message_theme
     msg.attach(MIMEText(formathtml(title, text), "html"))
-    if file:
-        msg.attach(MIMEText(file, "pdf"))
+    #if file:
+    #    msg.attach(MIMEText(file, "pdf"))
 
     if user_mail:
         try:
